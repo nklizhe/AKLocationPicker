@@ -8,8 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSString (URLEncoding)
+@interface NSString (AKURLEncoding)
 
--(NSString *)urlEncodeUsingEncoding:(NSStringEncoding)encoding;
+- (NSString *)urlEncodeUsingEncoding:(NSStringEncoding)encoding;
+- (NSString *)URLEncodedString;
+- (NSString *)URLDecodedString;
 
 @end
