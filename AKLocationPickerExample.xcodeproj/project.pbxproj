@@ -498,6 +498,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AKLocationPickerExample/AKLocationPickerExample-Prefix.pch";
 				INFOPLIST_FILE = "AKLocationPickerExample/AKLocationPickerExample-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = AKLocationPickerExample;
 				WRAPPER_EXTENSION = app;
 			};
@@ -512,6 +513,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AKLocationPickerExample/AKLocationPickerExample-Prefix.pch";
 				INFOPLIST_FILE = "AKLocationPickerExample/AKLocationPickerExample-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = AKLocationPickerExample;
 				WRAPPER_EXTENSION = app;
 			};

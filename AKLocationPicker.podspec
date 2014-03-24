@@ -17,8 +17,8 @@ Pod::Spec.new do |s|
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
 
   s.author       = { "Andrii Kurinnyi" => "andrew@marpasoft.com" }
-  s.platform     = :ios, '7.0'
-  s.source       = { :git => "https://github.com/zen4ever/AKLocationPicker.git", :tag => "1.1.1" }
+  s.platform     = :ios, '6.0'
+  s.source       = { :git => "https://github.com/nklizhe/AKLocationPicker.git" }
 
   s.source_files  = 'AKLocationPicker/*.{h,m}'
 
