@@ -52,15 +52,27 @@
     [mapView addGestureRecognizer:lpgr];
     self.mapView = mapView;
     
-    id<UILayoutSupport> topLayoutGuide = self.topLayoutGuide;
-    id<UILayoutSupport> bottomLayoutGuide = self.bottomLayoutGuide;
+    NSDictionary *views = nil;
+    if ([self respondsToSelector:@selector(topLayoutGuide)] && [self respondsToSelector:@selector(bottomLayoutGuide)]) {
+        id<UILayoutSupport> topLayoutGuide = self.topLayoutGuide;
+        id<UILayoutSupport> bottomLayoutGuide = self.bottomLayoutGuide;
     
-    NSDictionary *views = NSDictionaryOfVariableBindings(searchBar, topLayoutGuide, bottomLayoutGuide, mapView);
-    [self.view addConstraints:[NSLayoutConstraint
-                               constraintsWithVisualFormat:@"V:[topLayoutGuide][searchBar][mapView][bottomLayoutGuide]"
-                                                   options:0
-                                                   metrics:nil
-                                                     views:views]];
+        views = NSDictionaryOfVariableBindings(searchBar, topLayoutGuide, bottomLayoutGuide, mapView);
+        [self.view addConstraints:[NSLayoutConstraint
+                                   constraintsWithVisualFormat:@"V:[topLayoutGuide][searchBar][mapView][bottomLayoutGuide]"
+                                                       options:0
+                                                       metrics:nil
+                                                         views:views]];
+    }
+    else {
+        views = NSDictionaryOfVariableBindings(searchBar, mapView);
+        [self.view addConstraints:[NSLayoutConstraint
+                                   constraintsWithVisualFormat:@"V:|[searchBar][mapView]|"
+                                   options:0
+                                   metrics:nil
+                                   views:views]];
+        
+    }
     [self.view addConstraints:[NSLayoutConstraint
                                constraintsWithVisualFormat:@"H:|[searchBar]|"
                                                    options:0
@@ -71,6 +83,7 @@
                                                    options:0
                                                    metrics:nil
                                                      views:views]];
+    
     searchDisplayController.searchResultsDelegate = self;
     searchDisplayController.searchResultsDataSource = self.dataSource;
     searchDisplayController.delegate = self;
